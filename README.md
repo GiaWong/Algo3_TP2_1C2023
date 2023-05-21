@@ -10,6 +10,7 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 * **Integrante 2** - [Janampa Salazar, Mario Rafael](https://github.com/Dayrustz7u7)
 * **Integrante 3** - [Marcelo Agustin, Origoni Guillaume](https://github.com/MarceloAgustinOrigoniGuillaume)
 * **Integrante 4** - [Roy Icer, Fiorilo Davalos](https://github.com/Rfiorilo14)
+* **Integrante 5** - [Cesar Reyna](https://github.com/cesarreyna07)
 
 Corrector: **{Corrector}**
 
