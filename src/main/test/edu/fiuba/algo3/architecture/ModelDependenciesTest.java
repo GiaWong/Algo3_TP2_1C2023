@@ -22,6 +22,7 @@ public class ModelDependenciesTest {
                 .should().onlyDependOnClassesThat().resideInAnyPackage(listOfPackages);
 
         myRule.check(importedClasses);
+
     }
 
 }
