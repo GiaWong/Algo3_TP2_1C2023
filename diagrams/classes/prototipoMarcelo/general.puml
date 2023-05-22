@@ -1,0 +1,50 @@
+@startuml
+
+class Jugador{
+}
+
+class Juego{
+}
+
+
+
+class GestorTurnos{
+}
+class Mapa{
+}
+interface Actor{
+    +accionarEn(mapa:Mapa, jugador)
+}
+
+
+class Constructor{
+    +accionarEn(mapa:Mapa,jugador)
+    -posiblesConstrucciones() []PosibleConstruccion
+}
+
+class MovimientoEnemigos{
+    +accionarEn(mapa:Mapa,jugador)
+}
+
+class DefensaJugador{
+    +accionarEn(mapa:Mapa,jugador)
+}
+
+
+
+Juego --> GestorTurnos
+Juego --> Mapa
+Juego --> Jugador
+
+GestorTurnos ..> Mapa
+GestorTurnos ..> Jugador
+GestorTurnos --> Actor
+
+MovimientoEnemigos ..|> Actor
+DefensaJugador ..|> Actor
+Constructor ..|> Actor
+
+
+
+
+@enduml

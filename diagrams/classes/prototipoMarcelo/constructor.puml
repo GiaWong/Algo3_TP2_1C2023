@@ -1,0 +1,64 @@
+@startuml
+
+class Constructor{
+    +accionarEn(mapa:Mapa, jugador)
+    -posiblesConstrucciones() List[PosibleConstruccion]
+}
+
+
+class PosibleConstruccion{
+    + nombre() String
+    + costo() int
+    + puedeConstruirse(Jugador) bool
+    + iniciarConstruccion(mapa, Jugador) ConstruccionTentativa
+}
+
+class ConstruccionTentativa{
+    ConstruccionTentativa(mapa,construccion)
+    + posicion() [x,y]
+    + moverA(x,y)
+    + sePuedeConstruir() bool
+    + construir()
+}
+note top of Constructor
+posiblesConstrucciones sera para obtener en la ui a futuro?
+bue se vera
+
+accionarEn deberia mostrarle un menu de opciones al usuario
+y ponerse en espera a que se termine de construir.
+
+end note
+
+class Jugador{
+    + puedeCostear(costo) bool
+}
+
+class SistemaCreditos{
+    + tieneMasDe(cantidad) bool
+    + restarCreditos(cantidad)
+    + sumarCreditos(cantidad)
+}
+
+interface Construccion{
+    costo() int
+    puedeCostear(jugador) bool
+    restarCoste(jugador)
+}
+
+Jugador --> SistemaCreditos
+PosibleConstruccion ..> Jugador
+
+PosibleConstruccion ..> ConstruccionTentativa
+ConstruccionTentativa --> Construccion
+ConstruccionTentativa --> Jugador
+PosibleConstruccion --> Construccion
+class Mapa{
+    + construibleEn(x,y)
+}
+
+Constructor ..> Mapa
+Constructor ..> Jugador
+PosibleConstruccion ..> Mapa
+
+
+@enduml

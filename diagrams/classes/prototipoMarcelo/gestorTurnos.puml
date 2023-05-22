@@ -1,0 +1,44 @@
+@startuml
+
+interface Actor{
+    +accionarEn(mapa:Mapa)
+}
+
+class GestorTurnos{
+    +agregarActor(actor)
+    +jugarTurno(mapa)
+}
+
+GestorTurnos ---> Actor
+
+class Mapa{
+    + moverPosicion(x,y,unidades) [x,y]
+    + construibleEn(x,y) bool
+}
+
+
+class Juego{
+    Juego(json)
+    + iniciar()
+    - juegoIniciado() bool
+}
+
+
+Juego --> Mapa
+Juego --> GestorTurnos
+
+GestorTurnos..> Mapa
+
+note top of Juego
+ iniciar empezaria un ciclo, donde
+ correria los turnos manejados por el gestor.
+ gestor.jugarTurno()
+
+ Mientras se verifique que el juego siga...
+ encapsulado en juegoIniciado?
+end note
+
+
+
+
+@enduml

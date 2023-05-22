@@ -1,0 +1,25 @@
+@startuml
+
+interface Actor{
+    +accionarEn(mapa:Mapa, jugador)
+}
+
+class Constructor{
+    +accionarEn(mapa:Mapa,jugador)
+    -posiblesConstrucciones() []PosibleConstruccion
+}
+
+class MovimientoEnemigos{
+    +accionarEn(mapa:Mapa,jugador)
+}
+
+class DefensaJugador{
+    +accionarEn(mapa:Mapa,jugador)
+}
+
+Constructor ....|> Actor
+DefensaJugador ....|> Actor
+MovimientoEnemigos ....|> Actor
+
+
+@enduml

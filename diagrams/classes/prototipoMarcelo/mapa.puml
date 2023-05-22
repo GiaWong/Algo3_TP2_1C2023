@@ -1,0 +1,69 @@
+@startuml
+
+class Mapa{
+    Mapa(json)
+    + construibleEn(x,y) bool
+    + closestEnemigoRango(x,y,rango) Enemigo
+    + moverPos(x,y,unidad) Posicion
+}
+
+class Posicion{
+    +x()
+    +y()
+}
+
+class Camino{
+    Camino(inicio,fin,pasarelas)
+    + mover(x,y, unidades)
+    + llegoAlFinal(x,y) bool
+}
+
+interface Parcela{
+    +esConstruible() bool
+}
+
+class Rocoso{
+    +esConstruible() bool
+}
+
+class Tierra{
+    +esConstruible() bool
+}
+
+class Enemigo{
+    +atacar(damage)
+}
+
+class Pasarela{
+    +esConstruible() bool
+    +estaLLena() bool
+    +agregarEnemigo()
+    +quitarEnemigo(enemigo)
+}
+
+Pasarela ...|> Parcela
+Rocoso ...|> Parcela
+Tierra ...|> Parcela
+
+note top of Mapa
+En el constructor
+ademas de agrega a una matriz bidimensional
+cada pasarela la agregara a una lista
+a menos que sea un punto de salida o llegada
+al final instanciara un camino.
+end note
+
+note top of Camino
+En el constructor
+buscara el orden correcto
+de las pasrelas para que sea un camino
+secuencial de inicio a fin.
+end note
+
+note top of Mapa
+Bueno intente pensar como hacer
+mas facil el tema de atacar enemigos, pero nada
+habra que ver despues..
+end note
+
+@enduml

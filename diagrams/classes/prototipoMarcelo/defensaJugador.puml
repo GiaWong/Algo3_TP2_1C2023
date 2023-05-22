@@ -1,0 +1,24 @@
+@startuml
+
+class DefensasJugador{
+    +accionarEn(mapa:Mapa,jugador)
+}
+
+class Jugador{
+    obtenerDefensas() []Defensa
+}
+class Mapa{
+    + closestEnemigoEnRango(x,y,rango) Enemigo
+}
+
+note top of DefensasJugador
+Queda ver donde guardamos defensas...
+como obtenemos el enemigo mas cercano
+en rango...
+y asi
+end note
+
+
+
+
+@enduml

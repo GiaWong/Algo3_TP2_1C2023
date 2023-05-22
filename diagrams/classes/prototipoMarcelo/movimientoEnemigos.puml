@@ -1,0 +1,31 @@
+@startuml
+
+class MovimientoEnemigos{
+    + agregarEnemigo(enemigo)
+    + removerEnemigo(enemigo)
+    +accionarEn(mapa, jugador)
+}
+
+class Enemigo{
+    estaVivo() bool
+    moverseEn(mapa) bool
+    llegoMeta(jugador)
+}
+
+MovimientoEnemigos --> Enemigo
+
+note top of MovimientoEnemigos
+accionar iteraria a los enemigos registrados
+se asume que ningun enemigo muerto
+estara entre estos. Invocando enemigo.moverseEn(mapa)
+Si este al moverse devuelve true significara
+llego al final, se borraran del registro al final
+tambien invocando enemigo.llegoMeta(jugador)
+
+end note
+
+
+
+
+
+@enduml
